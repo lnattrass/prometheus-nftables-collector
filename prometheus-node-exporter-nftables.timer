@@ -1,0 +1,9 @@
+[Unit]
+Description=Nftables Text File Collector for Prometheus Node Exporter
+
+[Timer]
+OnUnitActiveSec=5min
+OnBootSec=0s
+
+[Install]
+WantedBy=timers.target
