@@ -3,7 +3,7 @@ Nftables Textfile Collector for Prometheus Node Exporter
 
 ## Requirements
 
-You need `python3.7` or newer to run the collector script and obviously `nft`.
+You need `python3.7` or newer to run the collector script and obviously `nft` (tested with `v0.9.0`).
 
 ## Setup
 
