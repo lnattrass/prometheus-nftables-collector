@@ -1,0 +1,30 @@
+[Unit]
+Description=Nftables Textfile Collector for Prometheus Node Exporter
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c '/usr/share/prometheus-node-exporter/nftables.py > %T/nftables.prom'
+ExecStartPost=!/usr/bin/mv %T/nftables.prom %S/prometheus/node-exporter/
+
+ReadWritePaths=%S/prometheus/node-exporter
+
+AmbientCapabilities=CAP_NET_ADMIN
+DynamicUser=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+PrivateDevices=yes
+PrivateMounts=yes
+PrivateNetwork=no
+PrivateUsers=no
+PrivateTmp=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectSystem=strict
+RestrictAddressFamilies=
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallArchitectures=native
+UMask=0022
