@@ -29,7 +29,7 @@ table ip filter {
   chain input {
     type filter hook input priority 0
     policy drop
-    tcp dport { 80, 443 } meter http-limit { ip saddr limit rate over 16mbytes/second } counter name http-denied drop
+    tcp dport { 80, 443 } meter http-limit { ip saddr limit rate over 16 mbytes/second } counter name http-denied drop
     tcp dport { 80, 443 } counter name http-allowed accept
   }
 }
