@@ -21,22 +21,22 @@ def fetch_json(*args: str):
 
 def list_counters() -> list:
     obj = fetch_json('nft', '--json', 'list', 'counters')
-    return [item['counter'] for item in obj.get('nftables', [])]
+    return [item['counter'] for item in obj.get('nftables', []) if 'counter' in item]
 
 
 def list_maps() -> list:
     obj = fetch_json('nft', '--json', 'list', 'maps')
-    return [item['map'] for item in obj.get('nftables', [])]
+    return [item['map'] for item in obj.get('nftables', []) if 'map' in item]
 
 
 def list_meters() -> list:
     obj = fetch_json('nft', '--json', 'list', 'meters')
-    return [item['meter'] for item in obj.get('nftables', [])]
+    return [item['meter'] for item in obj.get('nftables', []) if 'meter' in item]
 
 
 def list_sets() -> list:
     obj = fetch_json('nft', '--json', 'list', 'sets')
-    return [item['set'] for item in obj.get('nftables', [])]
+    return [item['set'] for item in obj.get('nftables', []) if 'set' in item]
 
 
 def format_labels(obj: dict) -> str:
